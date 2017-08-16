@@ -8,7 +8,7 @@ InputReader - This class is basically for reading the sales data.
 Parse - This class is for parsing the input line and extracting the product, quantity, price values according to three kinds of messages.
 Storage - This class computes the operation and meant for building and displaying log reports.
 
-#Assumptions
+#Assumptions 
 1)All the product are fruit types.
 2)Total price is always mentioned in pence.
 3)Message type 1 : Orange at 10p. Quantity is taken to be 1 in this message.
