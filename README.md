@@ -10,7 +10,7 @@ Storage - This class computes the operation and meant for building and displayin
 
 #Assumptions
 1)All the product are fruit types.
-2)Total price is always mentioned in pence.\n 
+2)Total price is always mentioned in pence.
 3)Message type 1 : Orange at 10p. Quantity is taken to be 1 in this message.
 4)Message type 2 :20 sales of Orange at 10p each . Here quantity is 20 Product is Orange and price is 10p each. Hence total is 200p
 5)Message type 3 :Add 20p apples. Here Addition is performed on price.
