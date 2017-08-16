@@ -1,0 +1,35 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+/**
+ * 
+ * @author Smriti Ajit
+ * In this class  fetching the sale message from input file and reading it 
+ *
+ */
+
+public class InputReader {
+	
+	
+	
+	public static void main (String args[]) throws IOException 
+	{
+		String fileLine;
+		
+		Parse parseMessage = new Parse();
+		//Reades the input file .txt
+		BufferedReader file = new BufferedReader(new FileReader ("/home/itelligence/Desktop/morgan.txt"));
+	
+	while ((fileLine = file.readLine())!= null)
+	{
+		if(fileLine!= null || !fileLine.isEmpty())
+		{
+			
+			parseMessage.parsing(fileLine);
+		}
+	}
+	
+	
+	}
+}
+

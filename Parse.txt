@@ -1,0 +1,69 @@
+import java.io.IOException;
+
+/**
+ * 
+ * @author Smriti Ajit
+ *This class checks which sale message is coming and fetches
+ *price operator product and quantity
+ */
+public class Parse {
+
+	String operator= null;
+	String product = null;
+	double price = 0.0;
+	int quantity = 0;
+	Storage storage = new Storage();
+	
+	public void parsing(String fileline) throws IOException
+	{
+	String [] message = fileline.trim().split(" ");
+	
+	    //if message sale is : Add 20p orange
+	
+		if (message[0].matches("Add|Sub|Multiply|Subtract"))
+		{
+	      if(message.length==3)
+	      {
+	    	  operator = message[0];
+	    	  operator = operator.toLowerCase();
+	    	  String updatePrice = message[1].substring(0, message[1].length()-1);
+	    	  price = Integer.parseInt(updatePrice);
+	    	  product = message[2].toLowerCase();
+	    	  quantity = 0;
+	    	  storage.update(operator,price,product,quantity);
+	      }
+		}
+		
+		//if message sale is : 10 sale orange 20p each
+		
+		else if (message[0].matches("\\d+"))
+		{
+			if(message.length == 6)
+			{
+			  operator = null;
+			  String updatePrice = message[4].substring(0, message[4].length()-1);
+	    	  price = Integer.parseInt(updatePrice);
+	    	  product = message[3].toLowerCase();
+	    	  quantity = Integer.parseInt(message[0]);	
+	    	  storage.update(operator,price,product,quantity);
+			}
+		}
+		
+		//if message sale is : Orange at 10p each.
+		
+		else if (message[2].matches("\\d+p") && message[1].matches("at"))
+		{
+			if(message.length == 4)
+			{
+			  operator = null;
+			  String updatePrice = message[2].substring(0, message[2].length()-1);
+	    	  price = Integer.parseInt(updatePrice);
+	    	  product = message[0].toLowerCase();
+		      quantity = 1;
+		      storage.update(operator,price,product,quantity);
+			}
+		}  
+	}
+    
+}
+

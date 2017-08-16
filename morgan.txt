@@ -1,0 +1,87 @@
+Apple at 10p each
+20 sales of apple 10p each
+Add 20p apple
+cherry at 20p each
+10 sales of cherry 20p each
+Add 20p cherry
+banana at 2p each
+10 sales of banana 2p each
+Add 4p banana
+strawberry at 100p each
+15 sales of strawberry 100p each
+Product 50p strawberry
+apple at 10p each
+20 sales of apple 10p each
+Add 20p apple
+Cherry at 20p each
+10 sales of cherry 20p each
+Add 20p cherry
+Banana at 2p each
+10 sales of banana 2p each
+Add 4p banana
+strawberry at 100p each
+15 sales of strawberry 100p each
+Sub 50p strawberry
+apple at 10p each
+20 sales of apple 10p each
+Add 20p apple
+cherry at 20p each
+10 sales of cherry 20p each
+Add 20p cherry
+banana at 2p each
+10 sales of banana 2p each
+Add 4p banana
+strawberry at 100p each
+15 sales of strawberry 100p each
+Sub 50p strawberry
+apple at 10p each
+20 sales of apple 10p each
+Add 20p apple
+cherry at 20p each
+10 sales of cherry 20p each
+Add 20p cherry
+banana at 2p each
+10 sales of banana 2p each
+Add 4p banana
+strawberry at 100p each
+15 sales of strawberry 100p each
+Sub 50p strawberry
+apple at 10p each
+20 sales of apple 10p each
+Add 20p apple
+cherry at 20p each
+10 sales of cherry 20p each
+Add 20p cherry
+banana at 2p each
+10 sales of banana 2p each
+Add 4p banana
+strawberry at 100p each
+15 sales of strawberry 100p each
+Sub 50p strawberry
+apple at 10p each
+20 sales of apple 10p each
+Add 20p apple
+cherry at 20p each
+10 sales of cherry 20p each
+Add 20p cherry
+banana at 2p each
+10 sales of banana 2p each
+Add 4p banana
+strawberry at 100p each
+15 sales of strawberry 100p each
+Sub 50p strawberry
+Add 20p cherry
+banana at 2p each
+10 sales of banana 2p each
+Add 4p banana
+strawberry at 100p each
+15 sales of strawberry 100p each
+Sub 50p strawberry
+Add 20p cherry
+banana at 2p each
+10 sales of banana 2p each
+Add 4p banana
+strawberry at 100p each
+15 sales of strawberry 100p each
+Sub 50p strawberry
+

@@ -1,0 +1,139 @@
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+/**
+ * 
+ * @author Smriti Ajit
+ * In this class we are doing the calculation and storing the log and displaying it
+ *
+ */
+
+public class Storage {
+HashMap <String , ArrayList> store = new HashMap <String ,ArrayList>(); //key is product type & value for hashmap - price and quantity
+ArrayList <Integer> temp = new ArrayList<Integer>();
+int num =0;
+int pause =0;
+ArrayList <String> log = new ArrayList<String>();
+public void update(String operator, double price, String product, int quantity) throws IOException
+{
+	int counter = 0;
+	for(Map.Entry m:store.entrySet())
+	{
+		if(m.getKey().equals(product))
+		{
+			counter++;
+		}
+	}
+	//checking if product already exists or not. if counter = 0 hence no product as such exist in map.
+	if(counter==0)
+	{
+	  ArrayList <Integer> proQuan = new ArrayList<Integer>();
+	  proQuan.add((int)price);
+	  proQuan.add(quantity);
+	  store.put(product,  proQuan);
+	  String report = String.format("Product '%s' Quantity = 0 is updated to New Quantity '%d'" ,product,quantity);
+	  log.add(report);	
+	}
+	//updating vales(Price and Quantity) for existing product in Map 
+	else
+	{   
+		//if sale message is not of "Add 20p Orange" kind
+		if(operator==null)
+		 {
+			ArrayList <Integer> proQuan = new ArrayList<Integer>();
+			proQuan =store.get(product);
+			int temp = 0;
+			if(proQuan.size()==2)
+			{
+			temp =proQuan.get(1);
+			temp = temp + quantity;
+			}
+			else
+			{
+		    temp = quantity;
+			}
+			String report = String.format("Product '%s' Quantity = '%d' is updated to New Quantity '%d'",product,proQuan.get(1),temp);
+		    log.add(report);
+			proQuan.set(1, temp);
+			store.put(product, proQuan);			
+		}
+		//if sale message is of "Add 20p Orange" kind
+		else
+		{
+			ArrayList <Integer> proQuan = new ArrayList<Integer>();
+			proQuan =store.get(product);
+			double newValue = 0;
+			double temp =proQuan.get(0);
+			
+			if(operator.matches("[Aa]dd"))
+			{
+				newValue = temp + price;	
+			}
+			
+			else if(operator.matches("[Ss]ub|[Ss]ubtract"))
+			{
+				if(temp > price )
+				{
+					 newValue = temp - price;
+				}
+				else
+				{
+					System.out.println("Price is greater than intital price. Please give a proper price");
+				}
+			}
+			else if(operator.matches("[pP]roduct"))
+			{
+				 newValue = temp * price;	
+			}
+			proQuan.set(0,(int) newValue);
+			store.put(product, proQuan);
+			String report = String.format("Product '%s' Operation performed = '%s' to old price by '%f' for Quantity = '%d'  price updated from '%f' to '%f' Total Price = '%f'p",product,operator,price,proQuan.get(1),temp,newValue,newValue*proQuan.get(1));
+		    log.add(report);
+		
+		}
+		
+	}
+	
+	num++;
+	pause++;
+	//Printing the log after every 10 sale message.
+	if (num==10 && pause <50)
+	{
+		System.out.println("......Printing the logs........");
+		for(Map.Entry m:store.entrySet())
+		{
+			double p = (Integer) store.get(m.getKey()).get(0);
+			double q = (Integer) store.get(m.getKey()).get(1);
+			double totalPrice = p*q;
+			System.out.println("Product--> "+m.getKey() + " at " + store.get(m.getKey()).get(0)+"p "+ "Quantity= " + store.get(m.getKey()).get(1)+" Total price = "+ totalPrice +"p");
+		}
+		num = 0;
+	}
+	//Printing the updation and writing the log after 50 sale message and stopping the system.
+	if(pause==50)
+	{
+		System.out.println("\n**********System Pausing*********");
+		System.out.println("**********Printing logs*********");
+		FileOutputStream fout = new FileOutputStream("/home/itelligence/Desktop/resultLog.txt");
+		BufferedOutputStream bout = new BufferedOutputStream(fout);
+		
+		for(int i =0; i<log.size();i++)
+		{
+			System.out.println(log.get(i));
+			byte b[] =  log.get(i).getBytes();
+			bout.write(b);
+			
+		}
+		bout.flush();
+		bout.close();
+		fout.close();
+		System.exit(0);
+	}
+}
+
+}
+
+
